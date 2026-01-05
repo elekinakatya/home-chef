@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/sofia-pro/Sofia-Pro-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/sofia-pro/Sofia-Pro-Semi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Beatrice Deck Trial Bold';
+    src: url('../assets/fonts/beatrice-display/BeatriceDeckTRIAL-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Beatrice Deck Trial Regular';
+    src: url('../assets/fonts/beatrice-display/BeatriceDeckTRIAL-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+

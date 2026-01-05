@@ -1,0 +1,30 @@
+@import './styles/fonts.css';
+
+:root {
+  font-family: 'Sofia Pro', sans-serif;
+  background-color: #EBEBEB;
+  height: 100%;
+
+
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+
+
+body {
+  font-family: 'Sofia Pro', sans-serif;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+
+
+
+
+
