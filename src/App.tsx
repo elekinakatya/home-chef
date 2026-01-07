@@ -1,5 +1,4 @@
 
-
 import './App.css'
 import { RecipePage } from './pages/RecipesPage/RecipePage.tsx';
 import {Route, Routes} from "react-router-dom";

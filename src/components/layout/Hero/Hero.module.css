@@ -1,0 +1,26 @@
+.hero{
+    display: flex;
+    background: #FEBD2F;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+
+}
+.heroInner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    display: flex;
+    font-family: "Beatrice Deck Trial Bold", sans-serif;
+    font-size: 60px;
+    color:  #383333;
+}
+.badgesText{
+    color:  #525252;
+    font-size: 12px;
+}

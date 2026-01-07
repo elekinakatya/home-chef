@@ -1,11 +1,11 @@
 import {RecipeCard} from "../../components/ui/RecipeCard/RecipeCard.tsx";
 import {recipeMock} from "../../entities/recipe/mocks.ts";
-import {Header} from "../../components/layout/Header/Header.tsx";
+import {Hero} from "../../components/layout/Hero/Hero.tsx";
 
 export const RecipePage = () => {
     return (
-        <div>
-            <Header />
+        <div style={{paddingTop:"80px"}}>
+            <Hero/>
             {recipeMock.map((recipe) => (
                 <RecipeCard key = {recipe.id} recipe={recipe} />
             ))}
