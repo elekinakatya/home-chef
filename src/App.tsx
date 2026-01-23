@@ -9,9 +9,11 @@ function App() {
     return (
         <>
             <Header/>
-            <Routes>
-                <Route path="/" element={<RecipePage/>}/>
-            </Routes>
+            <main className="main">
+                <Routes>
+                    <Route path="/" element={<RecipePage/>}/>
+                </Routes>
+            </main>
         </>
     );
 }

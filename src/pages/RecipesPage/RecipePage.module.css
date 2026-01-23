@@ -1,0 +1,19 @@
+.page {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards {
+    transform: translateY(10px); /* начальное место */
+
+}
+.category {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    gap: 10px;
+}
+.cardsAnimated {
+    transform: translateY(10px); /* примерно высота hero / чуть меньше */
+
+}

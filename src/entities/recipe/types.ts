@@ -6,3 +6,9 @@ export type Recipe = {
     cookTime: number;
     serving: number;
 }
+export interface Category {
+    idCategory: string
+    strCategory: string
+    strCategoryThumb: string
+    strCategoryDescription: string
+}

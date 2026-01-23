@@ -1,4 +1,5 @@
 @import './styles/fonts.css';
+@import 'animate.css';
 
 :root {
   font-family: 'Sofia Pro', sans-serif;

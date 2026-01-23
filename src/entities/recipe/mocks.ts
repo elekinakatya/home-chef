@@ -1,4 +1,4 @@
-import type {Recipe} from "./types.ts";
+import type {Category, Recipe} from "./types.ts";
 import csImage from '../../assets/image/cs.svg';
 export const recipeMock: Recipe[] = [
     {
@@ -25,4 +25,25 @@ export const recipeMock: Recipe[] = [
         cookTime: 15,
         serving: 2,
     },
+];
+export const mockCategory: Category[] = [{
+    idCategory: '1',
+    strCategory: 'Beef',
+    strCategoryThumb:
+        'https://www.themealdb.com/images/category/beef.png',
+    strCategoryDescription: '',
+},{
+    idCategory: '2',
+    strCategory: 'Chicken',
+    strCategoryThumb:
+        'https://www.themealdb.com/images/category/chicken.png',
+    strCategoryDescription: '',
+},{
+    idCategory: '3',
+    strCategory: 'Dessert',
+    strCategoryThumb:
+        'https://www.themealdb.com/images/category/dessert.png',
+    strCategoryDescription: '',
+}
+
 ];

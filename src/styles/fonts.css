@@ -25,4 +25,16 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Beatrice Deck Trial Semi-Bold';
+    src: url('../assets/fonts/beatrice-display/BeatriceDeckTRIAL-Semibold.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Beatrice Deck Trial Medium';
+    src: url('../assets/fonts/beatrice-display/BeatriceDisplayTRIAL-Medium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}

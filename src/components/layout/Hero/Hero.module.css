@@ -1,26 +1,92 @@
 .hero{
-    display: flex;
     background: #FEBD2F;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    box-sizing: border-box;
-
+    height: 400px;
+    position: relative;
+    border-radius: 0 0 30px 30px;
+    overflow: hidden;
 }
+
 .heroInner {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .title{
-    display: flex;
-    font-family: "Beatrice Deck Trial Bold", sans-serif;
+    font-family: "Beatrice Deck Trial Semi-Bold", sans-serif;
     font-size: 60px;
     color:  #383333;
+    line-height: 65px;
+    display: flex;
+    flex-direction: column;
+
+}
+.line1, .line2, .line3{
+
+}
+.line2{
+    margin-left: 85px;
+}
+.left {
+    display: grid;
+    grid-template-columns: repeat(15, 50px);
+    grid-template-rows:  repeat(16, 25px);
+    margin-left: 85px;
+    padding: 16px;
+}
+.badges {
+
 }
 .badgesText{
     color:  #525252;
     font-size: 12px;
+}
+.badgesTop, .badgesBottom {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 190px;
+}
+.badgesTop {
+    grid-column: 9/15;
+    grid-row: 3;
+    align-self: center;
+}
+.badgesBottom {
+    grid-column: 8/12;
+    grid-row: 9;
+    align-self: center;
+}
+.right {
+    display:  grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows:  repeat(20, 20px);
+}
+.heroImg {
+    height: 400px;
+    grid-row: 2/21;
+
+}
+.spot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+}
+.spotMini {
+    position: absolute;
+    bottom: -5px;
+    right: -2px;
+    width: 90px;
+}
+.whiteSpot {
+    position: absolute;
+    bottom: -1px;
+    left: 500px;
+    width: 190px;
+}
+.sticks {
+    position: absolute;
+    right: 90px;
+    top: 30px;
+    width: 100px;
 }

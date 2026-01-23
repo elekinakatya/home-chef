@@ -1,14 +1,14 @@
 .header {
     display: flex;
-    justify-content: space-between;
     background: #FEBD2F;
-    align-items: center;
-    width: 100vw;
-    box-sizing: border-box;
     height: 80px;
-    position: fixed;
-    top: 0;
     left: 0;
+    right: 0;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 24px;
     z-index: 1000;
 
 }
@@ -19,9 +19,9 @@
     font-family: "Beatrice Deck Trial Bold", sans-serif;
 }
 .nav{
-    display: flex;
     padding: 10px;
     gap: 10px;
+    justify-content: space-between;
 
 }
 .navLink{
@@ -38,8 +38,6 @@
     padding: 30px;
 }
 .actions{
-    display: flex;
-    justify-content: flex-end;
     gap: 20px;
     padding: 40px;
 }
