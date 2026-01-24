@@ -1,7 +1,7 @@
 .cardCategory {
     display: flex;
     align-items: center;
-    width: 145px;
+    width: 170px;
 }
 .image {
     display: flex;
@@ -9,6 +9,28 @@
     align-items: center;
     max-height: 35px;
     padding: 5px;
+}
+
+.categoryButton {
+    border: 0.5px solid rgba(56, 51, 51, 0.42);
+    border-radius: 30px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    background: #E5E5E5;
+}
+.active {
+    background: #FEBD2F;
+    border-color: #FEBD2F;
+}
+
+.categoryButton:hover {
+    filter: brightness(0.96);
+    cursor: pointer;
+}
+.categoryButton:focus-visible {
+    outline: 2px solid #ffffff;
+    border-radius: 30px;
 }
 
 .title {

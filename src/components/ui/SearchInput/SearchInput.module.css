@@ -1,0 +1,29 @@
+.input {
+    border: 0.5px solid rgba(56, 51, 51, 0.42);
+    border-radius: 30px;
+    height: 45px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    font-size: 15px;
+    outline: none;
+}
+.input:focus {
+    border-color: #FEBD2F;
+    box-shadow: 0 0 0 1px #FEBD2F33;
+}
+.searchInput {
+    position: relative;
+    max-width: 500px;
+}
+.icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    pointer-events: none;   /* клики уходят в input */
+}

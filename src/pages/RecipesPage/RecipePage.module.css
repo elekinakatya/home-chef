@@ -4,16 +4,24 @@
 }
 
 .cards {
-    transform: translateY(10px); /* начальное место */
+    transform: translateY(10px);
 
 }
 .category {
     display: flex;
     flex-direction: column;
-    margin: 30px;
     gap: 10px;
 }
 .cardsAnimated {
-    transform: translateY(10px); /* примерно высота hero / чуть меньше */
+    transform: translateY(10px);
 
+}
+
+.title{
+    font-size: 40px;
+    color:  #000000;
+    font-family: "Beatrice Deck Trial Semi-Bold", sans-serif;
+}
+.centerPage {
+    transform: translateY(30px);
 }

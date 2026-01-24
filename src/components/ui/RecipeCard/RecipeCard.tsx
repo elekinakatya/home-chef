@@ -7,7 +7,7 @@ interface RecipeCardProps {
     recipe: Recipe;
 }
 export const RecipeCard = ({recipe}:RecipeCardProps) => {
-    const { title, cookTime, image, serving, description} = recipe;
+    const { title, cookTime, image, serving} = recipe;
     const renderPersonIcons = (count: number) => {
         const icons = [];
         for (let i = 0; i < count; i++) {
@@ -26,7 +26,6 @@ export const RecipeCard = ({recipe}:RecipeCardProps) => {
                 <img src={image} alt={title} className={styles.image} />
                 <div className={styles.content}>
                     <h3 className={styles.title}>{title}</h3>
-                    <p className={styles.description}>{description}</p>
                     <div className={styles.sc}>
                         <div className={styles.serving}>
                             <p className={styles.servingLabel}>Serving</p>
