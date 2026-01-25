@@ -16,7 +16,7 @@
 }
 .searchInput {
     position: relative;
-    max-width: 500px;
+    width: 600px;
 }
 .icon {
     position: absolute;
@@ -25,5 +25,5 @@
     transform: translateY(-50%);
     width: 16px;
     height: 16px;
-    pointer-events: none;   /* клики уходят в input */
+    pointer-events: none;
 }

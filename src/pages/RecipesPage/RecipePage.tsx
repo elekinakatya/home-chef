@@ -85,19 +85,21 @@ export const RecipePage = () => {
                     ))}
                 </div>
                 <div className={styles.centerPage}>
-                    <SearchInput
-                        value={search}
-                        onChange={setSearch}
-                    ></SearchInput>
-                    <CountrySelect
-                        value={selectedArea}
-                        onChange={(area) => {
-                            setSelectedArea(area || '');
-                            setSearch('');  // очищаем поиск при выборе страны
-                        }}
-                    />
+                    <div className={styles.filtersRow}>
+                        <SearchInput
+                            value={search}
+                            onChange={setSearch}
+                        ></SearchInput>
+                        <CountrySelect
+                            value={selectedArea}
+                            onChange={(area) => {
+                                setSelectedArea(area || '');
+                                setSearch('');
+                            }}
+                        />
+                    </div>
 
-                    <div className={heroSlide ? styles.cardsAnimated : styles.cards}>
+                    <div className={`${styles.cards} ${heroSlide ? styles.cardsAnimated : ''}`}>
                         {recipe.map((recipe) => (
                             <RecipeCard key = {recipe.id} recipe={recipe} />
                         ))}
