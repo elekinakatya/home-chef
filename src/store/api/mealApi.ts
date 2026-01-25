@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import type {CategoriesResponse, MealsResponse} from "../../entities/recipe/types.ts";
+import type {AreasResponse, CategoriesResponse, MealsResponse} from "../../entities/recipe/types.ts";
 
 export const mealApi = createApi({
     reducerPath: 'mealApi',
@@ -21,6 +21,13 @@ export const mealApi = createApi({
             query: (category: string) => `filter.php?c=${category}`,
 
         }),
+        getAreasList: builder.query<AreasResponse, void>({
+            query: () => 'list.php?a=list',
+        }),
+        filterByArea: builder.query<MealsResponse, string>({
+            query: (area: string) => `filter.php?a=${area}`,
+        }),
+
     }),
 });
 
@@ -30,4 +37,6 @@ export const {
     useSearchMealsByNameQuery,
     useGetMealCategoriesQuery,
     useFilterByCategoryQuery,
+    useFilterByAreaQuery,
+    useGetAreasListQuery,
 } = mealApi;

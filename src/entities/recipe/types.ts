@@ -24,3 +24,9 @@ export interface CategoriesResponse {
 export interface MealsResponse {
     meals: Meal[];
 }
+export interface Area {
+    strArea: string;
+}
+export interface AreasResponse {
+    meals: Area[];
+}

@@ -9,12 +9,14 @@ import {
 } from "../../store/api/mealApi.ts";
 import type {Category, Recipe} from "../../entities/recipe/types.ts";
 import {SearchInput} from "../../components/ui/SearchInput/SearchInput.tsx";
+import {CountrySelect} from "../../components/ui/CountrySelect/CountrySelect.tsx";
 
 
 export const RecipePage = () => {
     const [selectedCategory, setSelectedCategory] = useState('Dessert');
     const [heroSlide, setHeroSlide] = useState(false)
     const [search, setSearch] = useState('')
+    const [selectedArea, setSelectedArea] = useState('');
 
     useEffect(() => {
         window.scrollTo(0, 0); //временно! пока хз как сделать норм анимацию
@@ -32,11 +34,13 @@ export const RecipePage = () => {
     const { data: searchData,
         isLoading: isSearchLoading,
         isError: searchError
-    } = useSearchMealsByNameQuery(search, {
+    } = useSearchMealsByNameQuery(normalizedSearch, {
         skip: normalizedSearch.length === 0,
     })
 
-    if (isMealsLoading || isCategoriesLoading || isSearchLoading) {
+    const isInitialLoading = !categoriesData && (isMealsLoading || isCategoriesLoading || isSearchLoading);
+
+    if (isInitialLoading) {
         return <div>Loading...</div>;
     }
     if (mealsError || isCategoriesError || searchError) {
@@ -75,7 +79,7 @@ export const RecipePage = () => {
                             isActive={selectedCategory === category.strCategory && normalizedSearch.length===0}
                             onClick={() => {
                                 setSelectedCategory(category.strCategory);
-                                setSearch(''); 
+                                setSearch('');
                             }}
                         />
                     ))}
@@ -85,6 +89,14 @@ export const RecipePage = () => {
                         value={search}
                         onChange={setSearch}
                     ></SearchInput>
+                    <CountrySelect
+                        value={selectedArea}
+                        onChange={(area) => {
+                            setSelectedArea(area || '');
+                            setSearch('');  // очищаем поиск при выборе страны
+                        }}
+                    />
+
                     <div className={heroSlide ? styles.cardsAnimated : styles.cards}>
                         {recipe.map((recipe) => (
                             <RecipeCard key = {recipe.id} recipe={recipe} />
