@@ -1,6 +1,6 @@
 .card{
-    width: 500px;          /* фиксированная ширина */
-    max-width: 100%;       /* чтобы не ломалось на маленьких экранах */
+    width: 500px;
+    max-width: 100%;
     margin: 20px auto;
     border-radius: 25px;
     background: #ffffff;

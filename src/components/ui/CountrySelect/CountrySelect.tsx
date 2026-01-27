@@ -38,7 +38,7 @@ export const CountrySelect = ({value, onChange}: CountrySelectProps) => {
                     <SelectGroup>
                         <SelectLabel>Countries</SelectLabel>
                         {areasData?.meals.map((area) => (
-                            <SelectItem key={area.strArea} value={area.strArea}>
+                            <SelectItem key={area.strArea} value={area.strArea} className="z-100">
                                 {area.strArea}
                             </SelectItem>
                         ))}

@@ -4,6 +4,7 @@ import {Hero} from "../../components/layout/Hero/Hero.tsx";
 import {useEffect, useState} from "react";
 import {Categories} from "../../components/ui/Categories/Categories.tsx";
 import {
+    useFilterByAreaQuery,
     useFilterByCategoryQuery,
     useGetMealCategoriesQuery, useSearchMealsByNameQuery,
 } from "../../store/api/mealApi.ts";
@@ -18,6 +19,7 @@ export const RecipePage = () => {
     const [search, setSearch] = useState('')
     const [selectedArea, setSelectedArea] = useState('');
 
+
     useEffect(() => {
         window.scrollTo(0, 0); //временно! пока хз как сделать норм анимацию
     },[])
@@ -26,19 +28,23 @@ export const RecipePage = () => {
     const { data: mealsData,
          isLoading: isMealsLoading,
             isError: mealsError} = useFilterByCategoryQuery(selectedCategory, {
-        skip: normalizedSearch.length>0,
+        skip: normalizedSearch.length>0 || selectedArea.length > 0,
     });
     const { data: categoriesData,
         isLoading: isCategoriesLoading,
         isError: isCategoriesError, } = useGetMealCategoriesQuery();
+
     const { data: searchData,
         isLoading: isSearchLoading,
         isError: searchError
     } = useSearchMealsByNameQuery(normalizedSearch, {
         skip: normalizedSearch.length === 0,
     })
+    const { data: areaData, isLoading: isAreaLoading} = useFilterByAreaQuery(selectedArea, {
+        skip: selectedArea.length === 0,
+    })
 
-    const isInitialLoading = !categoriesData && (isMealsLoading || isCategoriesLoading || isSearchLoading);
+    const isInitialLoading = !categoriesData && (isMealsLoading || isCategoriesLoading || isSearchLoading || isAreaLoading);
 
     if (isInitialLoading) {
         return <div>Loading...</div>;
@@ -48,7 +54,16 @@ export const RecipePage = () => {
     }
 
     let recipe: Recipe[] = [];
-    if (searchData?.meals && normalizedSearch.length > 0) {
+    if (areaData?.meals && selectedArea.length > 0) {
+        recipe = areaData.meals.map((meal) => ({
+            id: meal.idMeal,
+            title: meal.strMeal,
+            cookTime: 30,
+            image: meal.strMealThumb,
+            serving: 2,
+        }));
+
+    }else if (searchData?.meals && normalizedSearch.length > 0) {
         recipe = searchData.meals.map((meal) => ({
             id: meal.idMeal,
             title: meal.strMeal,
