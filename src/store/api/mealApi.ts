@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
-import type {AreasResponse, CategoriesResponse, MealsResponse} from "../../entities/recipe/types.ts";
+import type {AreasResponse, CategoriesResponse, MealInfoResponse, MealsResponse} from "../../entities/recipe/types.ts";
 
 export const mealApi = createApi({
     reducerPath: 'mealApi',
@@ -8,7 +8,7 @@ export const mealApi = createApi({
         getRandomMeal: builder.query<MealsResponse, void>({
             query: () => 'random.php',
         }),
-        getMealById: builder.query<MealsResponse, string>({
+        getMealById: builder.query<MealInfoResponse, string>({
             query: (id: string) => `lookup.php?i=${id}`,
         }),
         searchMealsByName: builder.query<MealsResponse, string>({

@@ -86,3 +86,6 @@ export interface MealInfo {
     strCreativeCommonsConfirmed: string | null;
     dateModified: string | null;
 }
+export interface MealInfoResponse {
+    meals: MealInfo[];
+}

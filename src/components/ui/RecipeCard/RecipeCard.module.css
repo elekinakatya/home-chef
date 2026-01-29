@@ -1,4 +1,8 @@
-
+.link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 .recipeCard{
     display: flex;
     align-items: flex-start;

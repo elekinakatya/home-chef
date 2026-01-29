@@ -2,12 +2,15 @@ import {Card} from '../Card/Card.tsx';
 import styles from './RecipeCard.module.css'
 import type {Recipe} from "../../../entities/recipe/types.ts";
 import personIcon from '../../../assets/icons/person.svg'
+import {Link, useLocation} from 'react-router-dom';
 
 interface RecipeCardProps {
     recipe: Recipe;
 }
 export const RecipeCard = ({recipe}:RecipeCardProps) => {
     const { title, cookTime, image, serving} = recipe;
+    const location = useLocation();
+
     const renderPersonIcons = (count: number) => {
         const icons = [];
         for (let i = 0; i < count; i++) {
@@ -21,6 +24,7 @@ export const RecipeCard = ({recipe}:RecipeCardProps) => {
         return icons;
     }
     return (
+        <Link to={`/recipes/${recipe.id}`} state={{from: location}} className={styles.link}>
         <Card>
             <div className={styles.recipeCard}>
                 <img src={image} alt={title} className={styles.image} />
@@ -42,6 +46,7 @@ export const RecipeCard = ({recipe}:RecipeCardProps) => {
 
             </div>
         </Card>
+        </Link>
     )
 
 }

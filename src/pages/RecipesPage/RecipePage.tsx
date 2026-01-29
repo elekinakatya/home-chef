@@ -11,13 +11,16 @@ import {
 import type {Category, Recipe} from "../../entities/recipe/types.ts";
 import {SearchInput} from "../../components/ui/SearchInput/SearchInput.tsx";
 import {CountrySelect} from "../../components/ui/CountrySelect/CountrySelect.tsx";
-
+import { useSearchParams } from "react-router-dom";
 
 export const RecipePage = () => {
-    const [selectedCategory, setSelectedCategory] = useState('Dessert');
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const selectedCategory = searchParams.get('category') || 'Dessert';
+    const selectedArea = searchParams.get('area') ?? '';
+    const search = searchParams.get('search') ?? '';
+
     const [heroSlide, setHeroSlide] = useState(false)
-    const [search, setSearch] = useState('')
-    const [selectedArea, setSelectedArea] = useState('');
 
 
     useEffect(() => {
@@ -93,8 +96,9 @@ export const RecipePage = () => {
                             key={category.idCategory}
                             isActive={selectedCategory === category.strCategory && normalizedSearch.length===0}
                             onClick={() => {
-                                setSelectedCategory(category.strCategory);
-                                setSearch('');
+                                setSearchParams({
+                                    category: category.strCategory
+                                })
                             }}
                         />
                     ))}
@@ -103,13 +107,18 @@ export const RecipePage = () => {
                     <div className={styles.filtersRow}>
                         <SearchInput
                             value={search}
-                            onChange={setSearch}
+                            onChange={(value) => {
+                                setSearchParams(
+                                    value ? {search: value } : {}
+                                )
+                            }}
                         ></SearchInput>
                         <CountrySelect
                             value={selectedArea}
                             onChange={(area) => {
-                                setSelectedArea(area || '');
-                                setSearch('');
+                                setSearchParams(
+                                    area ? {area} : {}
+                                )
                             }}
                         />
                     </div>
