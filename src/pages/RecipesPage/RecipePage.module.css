@@ -6,7 +6,9 @@
     padding: 0 20px;
     min-height: 100vh;
 }
-
+.loadMoreTrigger {
+    height: 1px;
+}
 .centerPage {
     transform: translateY(30px);
     display: flex;
