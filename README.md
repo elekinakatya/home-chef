@@ -1,74 +1,79 @@
-# React + TypeScript + Vite
+# Home Chef — Recipes App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend-приложение для просмотра и поиска рецептов на основе публичного API TheMealDB.
+Проект написан на React + TypeScript, использует Vite для сборки и Redux Toolkit Query для работы с API.
 
-Currently, two official plugins are available:
+Приложение можно запускать как локально, так и в изолированном Docker-контейнере.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Функциональность
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Просмотр списка рецептов по категориям
+* Поиск рецептов по названию
+* Фильтрация по стране 
+* Страница детального рецепта
+* Ингредиенты и инструкции приготовления
+* Навигация с помощью react-router-dom
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Стек технологий
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* React 18
+* TypeScript
+* Vite
+* Redux Toolkit / RTK Query
+* React Router v6
+* CSS Modules
+* Docker + Nginx
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## API
+
+Приложение использует публичный API TheMealDB: [https://www.themealdb.com/](https://www.themealdb.com/)
+
+---
+
+## Запуск проекта локально (без Docker)
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+После этого приложение будет доступно по адресу:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
-"# home-chef" 
+http://localhost:5173
+```
+
+---
+
+## Запуск проекта через Docker
+
+### Сборка Docker-образа
+
+В корне проекта выполните команду:
+
+```bash
+docker build -t home-chef .
+```
+
+### Запуск контейнера
+
+```bash
+docker run -p 3000:80 home-chef
+```
+
+После запуска приложение будет доступно по адресу:
+
+```
+http://localhost:3000
+```
+
+### Маршруты приложения
+
+* `/recipes` — список рецептов
+* `/recipes/:id` — страница конкретного рецепта
