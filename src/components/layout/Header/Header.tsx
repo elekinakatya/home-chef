@@ -17,7 +17,9 @@ export const Header = () => {
             </nav>
             <div className={styles.actions}>
                 <button className={styles.login}>Login</button>
-                <button className={styles.signup}>Sign Up</button>
+                <NavLink to="/register" className={styles.signup}>
+                    Sign Up
+                </NavLink>
             </div>
         </div>
     );

@@ -40,6 +40,8 @@
 .actions{
     gap: 20px;
     padding: 40px;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -64,6 +66,14 @@
     border: none;
     height: 45px;
     width: 107px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+    color: black;
+
 }
 .signup:hover{
     background: #f4f4f4;
